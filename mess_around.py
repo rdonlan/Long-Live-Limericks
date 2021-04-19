@@ -1,7 +1,11 @@
-from limerick_class import Limerick
-from nltk.corpus.reader import verbnet
-from nltk.corpus.reader.wordlist import WordListCorpusReader
+from limerick_class import Limerick, determine_fitness
+# from nltk.corpus.reader import verbnet
+# from nltk.corpus.reader.wordlist import WordListCorpusReader
 import pronouncing
+# import nltk
+from nltk.corpus import words
+# nltk.download('words')
+
 
 from Phyme import Phyme
 ph = Phyme()
@@ -13,6 +17,7 @@ from random_word import RandomWords
 ra = RandomWords()
 
 import random
+from random import sample
 
 from wonderwords import RandomWord
 r = RandomWord()
@@ -67,20 +72,8 @@ def find_rhyme(word, type_of_word=None):
     return rhymed_word
 
 
-def find_synonym(word):
-    synonyms = []
-
-    for syn in wn.synsets(word):    
-        for l in syn.lemmas():
-            if l.name() != word:
-                synonyms.append(l.name())
-
-            
-    return random.choice(synonyms)
-
-
 def original_generate_first_line(limerick_obj, name, pronoun):
-    first_line = "T'was once "
+    first_line = "Once there was "
     adjective = r.word(include_parts_of_speech=["adjectives"])
     if adjective[0] in ['a', 'e', 'i', 'o', 'u']:
         first_line = first_line + 'an '
@@ -121,7 +114,7 @@ def original_generate_second_line(limerick_obj, name, pronoun):
 
 def original_generate_3rd_4th_lines(limerick_obj, pronoun):
 
-    line_type = random.randint(0,3)
+    line_type = random.randint(0,2)
 
     random_determinant_1 = random.choice(DETERMINERS)
     random_determinant_2 = random.choice(DETERMINERS)
@@ -171,7 +164,7 @@ def original_generate_3rd_4th_lines(limerick_obj, pronoun):
 def original_generate_5th_line(limerick_obj, name, pronoun):
     rhymed_word = find_rhyme(name)
     # determinant, noun, auxillary
-    line_5 = random.choice(DETERMINERS) + ' ' + r.word(include_parts_of_speech=["noun"]) + ' ' + pronoun /
+    line_5 = random.choice(DETERMINERS) + ' ' + r.word(include_parts_of_speech=["noun"]) + ' ' + pronoun \
     + ' ' + random.choice(AUXILARY) + ' ' + rhymed_word
     limerick_obj.add_line(5, line_5)
 
@@ -196,8 +189,23 @@ if __name__ == "__main__":
     pronoun = 'he'
 
     limerick_1 = Limerick(name)
-
     generate_limerick(limerick_1, name, pronoun)
+    determine_fitness(limerick_1)
 
-    print(limerick_1)
+    print('\n')
 
+    limerick_2 = Limerick(name)
+    generate_limerick(limerick_2, name, pronoun)
+    determine_fitness(limerick_2)
+
+    print('\n')
+
+    limerick_3 = Limerick(name)
+    generate_limerick(limerick_3, name, pronoun)
+    determine_fitness(limerick_3)
+
+    print('\n')
+
+    
+    # print(' '.join(sample(words.words(), 1)))
+    # print(find_synonym('forbided'))
