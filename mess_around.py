@@ -1,4 +1,4 @@
-from limerick_class import Limerick, determine_fitness, find_synonym
+from limerick_class import Limerick, mutate_limerick, syllable_fitness, find_synonym, rhyming_fitness, human_generated_fitness
 # from nltk.corpus.reader import verbnet
 # from nltk.corpus.reader.wordlist import WordListCorpusReader
 import pronouncing
@@ -10,14 +10,12 @@ from nltk.corpus import words
 from Phyme import Phyme
 ph = Phyme()
 
-import nltk
 from nltk.corpus import wordnet as wn
 
 from random_word import RandomWords
 ra = RandomWords()
 
 import random
-from random import sample
 
 from wonderwords import RandomWord
 r = RandomWord()
@@ -127,7 +125,6 @@ def original_generate_3rd_4th_lines(limerick_obj, pronoun):
     random_auxilary_1 = random.choice(AUXILARY)
     random_auxilary_2 = random.choice(AUXILARY)
     random_noun = r.random_words(3, include_parts_of_speech=["noun"])
-    random_verb_ing = r.random_words(2, include_parts_of_speech=["verb"], ends_with='ing')
     random_verb = r.random_words(3, include_parts_of_speech=["verb"])
     random_adverb = r.random_words(3, include_parts_of_speech=[], ends_with='ly')
 
@@ -194,39 +191,53 @@ if __name__ == "__main__":
 
     limerick_1 = Limerick(name)
     generate_limerick(limerick_1, name, pronoun)
-    determine_fitness(limerick_1)
+    print(limerick_1)
+    print('syllable fitness: ' + str(syllable_fitness(limerick_1)))
+    print('rhyming fitness: ' + str(rhyming_fitness(limerick_1)))
+    mutate_limerick(limerick_1)
+    print(limerick_1)
 
     print('\n')
 
-    limerick_2 = Limerick(name)
-    generate_limerick(limerick_2, name, pronoun)
-    determine_fitness(limerick_2)
+    # limerick_2 = Limerick(name)
+    # generate_limerick(limerick_2, name, pronoun)
+    # print(limerick_2)
+    # print('syllable fitness: ' + str(syllable_fitness(limerick_2)))
+    # print('rhyming fitness: ' + str(rhyming_fitness(limerick_2)))
 
-    print('\n')
+    # print('\n')
 
-    limerick_3 = Limerick(name)
-    generate_limerick(limerick_3, name, pronoun)
-    determine_fitness(limerick_3)
+    # limerick_3 = Limerick(name)
+    # generate_limerick(limerick_3, name, pronoun)
+    # print(limerick_3)
+    # print('syllable fitness: ' + str(syllable_fitness(limerick_3)))
+    # print('rhyming fitness: ' + str(rhyming_fitness(limerick_3)))
 
-    print('\n')
+    # print('\n')
 
-    limerick_4 = Limerick(name)
-    generate_limerick(limerick_4, name, pronoun)
-    determine_fitness(limerick_4)
+    # limerick_4 = Limerick(name)
+    # generate_limerick(limerick_4, name, pronoun)
+    # print(limerick_4)
+    # print('syllable fitness: ' + str(syllable_fitness(limerick_4)))
+    # print('rhyming fitness: ' + str(rhyming_fitness(limerick_4)))
 
-    print('\n')
+    # print('\n')
 
-    limerick_5 = Limerick(name)
-    generate_limerick(limerick_5, name, pronoun)
-    determine_fitness(limerick_5)
+    # limerick_5 = Limerick(name)
+    # generate_limerick(limerick_5, name, pronoun)
+    # print(limerick_5)
+    # print('syllable fitness: ' + str(syllable_fitness(limerick_5)))
+    # print('rhyming fitness: ' + str(rhyming_fitness(limerick_5)))
 
-    print('\n')
+    # print('\n')
 
-    limerick_6 = Limerick(name)
-    generate_limerick(limerick_6, name, pronoun)
-    determine_fitness(limerick_6)
+    # limerick_6 = Limerick(name)
+    # generate_limerick(limerick_6, name, pronoun)
+    # print(limerick_6)
+    # print('syllable fitness: ' + str(syllable_fitness(limerick_6)))
+    # print('rhyming fitness: ' + str(rhyming_fitness(limerick_6)))
 
-    print('\n')
+    # print('\n')
 
     
     # word = ' '.join(sample(words.words(), 1))

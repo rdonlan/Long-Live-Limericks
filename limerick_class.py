@@ -1,8 +1,17 @@
+'''
+inspiration
+http://www.eecs.qmul.ac.uk/~mpurver/papers/mcgregor-et-al16ccnlg.pdf
+'''
+
 import random
+import nltk
+#nltk.download('cmudict')
 from nltk.corpus import wordnet as wn
 from nltk.corpus import words
 from random import randint, sample
 import pronouncing
+from Phyme import Phyme
+ph = Phyme()
 
 
 class Limerick:
@@ -33,7 +42,6 @@ class Limerick:
 
 
     def change_word(self, line_num, old_word, new_word):
-        print('line to change in change word: ' + str(line_num))
 
         if line_num == 1:
             line = self.line_1 
@@ -46,9 +54,7 @@ class Limerick:
         else:
             line = self.line_5
         
-        print('old line: ' + line)
         new_line = line.replace(old_word, new_word)
-        print('new line: ' + new_line)
 
         if line_num == 1:
             self.set_line_1(new_line)
@@ -88,50 +94,92 @@ class Limerick:
         return final_string    
 
 
-def determine_fitness(limerick):
+'''
+meter is very important in limericks for holding the limericks to a roughly designated pattern will help its readability
+'''
+def syllable_fitness(limerick):
         fitness = 0
-        # syllable check
-        desired_line_syllables = [8.5, 8.5, 6.5, 6.5, 9.5]
+        # these values are not whole numbers so there is no divide by 0 error when calculating 
+        # fitness at the end of the function
+        desired_line_syllables = [8.5, 8.5, 7.5, 7.5, 9.5]
         lines = [limerick.line_1, limerick.line_2, limerick.line_3, limerick.line_4, limerick.line_5]
+        # for every line in the limerick
         for i in range(5):
             limerick_words = lines[i].split(" ")
             line_syllables = 0
+            # for every word in each line
             for j in range(len(limerick_words)):
                 word = limerick_words[j]
                 phones = pronouncing.phones_for_word(word)
                 counter = 0
                 new_word = None
+                # if this while statement is triggered it means that we can't determine the number 
+                # of syllables in the word this is because pronouncing doesn't have the word in its 
+                # dictionary or the word isn't a real word
                 while len(phones) < 1 and counter < 50:
-                    print('found a not real word and trying synonyms: ' + word)
                     possible_word = find_synonym(word)
+                    # making sure the synonym isn't the same as the word we are trying to change
                     if possible_word == word:
+                        # generate a random word in the hopes that its syllables can be calculated
                         possible_word = sample(words.words(), 1)[0]
-                    print('new word = ' + possible_word)
                     phones = pronouncing.phones_for_word(possible_word)
                     counter += 1
                     new_word = possible_word
+                # if a synonyms can't be found after 50 tries we generate a random word over and over
+                # until we are sure we can count its syllables
                 if counter > 49:
-                    print('hit max counter')
                     possible_word = sample(words.words(), 1)[0]
-                    print('new word because of max: ' + possible_word)
                     phones = pronouncing.phones_for_word(possible_word)
+                    # once again making sure the random word can be checked for syllables
                     while(len(phones) < 1):
                         possible_word = sample(words.words(), 1)[0]
                         phones = pronouncing.phones_for_word(new_word)
                         new_word = possible_word
-                # this is where I need to replace the word
                 
+                # need to replace the previous word with the new one in the limerick
                 if new_word != None:
-                    print('line that must be changed is line :' + str(i + 1))
                     limerick.change_word(i+1, word, new_word)
 
                 line_syllables += pronouncing.syllable_count(phones[0])
             fitness += (10 / abs(line_syllables - desired_line_syllables[i]))
-        print(limerick)
-
-        # grammar checks
 
         return fitness
+
+
+
+def rhyming_fitness(limerick):
+    rhyming_fitness = 50
+
+    last_word_line_1 = limerick.line_1.split(' ')[-1]
+    last_word_line_2 = limerick.line_2.split(' ')[-1]
+    last_word_line_5 = limerick.line_5.split(' ')[-1]
+
+    if do_they_rhyme(last_word_line_1, last_word_line_2) is False:
+        rhyming_fitness -= 10
+
+    if do_they_rhyme(last_word_line_2, last_word_line_5) is False:
+        rhyming_fitness -= 10
+
+    if do_they_rhyme(last_word_line_1, last_word_line_5) is False:
+        rhyming_fitness -= 10
+
+
+    last_word_line_3 = limerick.line_3.split(' ')[-1]
+    last_word_line_4 = limerick.line_4.split(' ')[-1]
+
+    if do_they_rhyme(last_word_line_3, last_word_line_4) is False:
+        rhyming_fitness -= 20
+
+    return 2 * rhyming_fitness
+    
+
+
+
+
+def human_generated_fitness(limerick):
+    fitness = input('What grade out of 10 would you give this limerick: ')
+    return 10 * fitness
+
 
 def find_synonym(word):
     synonyms = []
@@ -147,6 +195,55 @@ def find_synonym(word):
         return word
 
 
+def do_they_rhyme(word1, word2):
+    # possible_rhymes = ph.get_perfect_rhymes(word1)
+    possible_rhymes = pronouncing.rhymes(word1)
+    if word2 in possible_rhymes:
+        return True
+    else:
+        return False
+
+
+def mutate_limerick(limerick):
+    line_to_mutate = randint(1,5)
+    if line_to_mutate == 1:
+        line = limerick.line_1 
+    elif line_to_mutate == 2:
+        line = limerick.line_2
+    elif line_to_mutate == 3:
+        line = limerick.line_3
+    elif line_to_mutate == 4:
+        line = limerick.line_4
+    else:
+        line = limerick.line_5
+    
+    word_to_mutate = line[randint(1, len(line)) - 1]
+
+    new_word = sample(words.words(), 1)[0]
+    phones = pronouncing.phones_for_word(new_word)  
+
+    while(len(phones) < 1):
+        new_word = sample(words.words(), 1)[0]
+        phones = pronouncing.phones_for_word(new_word)
+
+    new_line = line.replace(word_to_mutate, new_word)
+
+    if line_to_mutate == 1:
+        limerick.set_line_1(new_line)
+    elif line_to_mutate == 2:
+        limerick.set_line_2(new_line)
+    elif line_to_mutate == 3:
+        limerick.set_line_3(new_line)
+    if line_to_mutate == 4:
+        limerick.set_line_4(new_line)
+    if line_to_mutate == 5:
+        limerick.set_line_5(new_line)
+
+    
+
+
+
+
 
 if __name__ == "__main__":
-    print(pronouncing.phones_for_word('wrungness'))
+    print(do_they_rhyme('swank', 'mbank'))
