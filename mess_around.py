@@ -1,4 +1,4 @@
-from limerick_class import Limerick, determine_fitness
+from limerick_class import Limerick, determine_fitness, find_synonym
 # from nltk.corpus.reader import verbnet
 # from nltk.corpus.reader.wordlist import WordListCorpusReader
 import pronouncing
@@ -41,7 +41,11 @@ r = ADVERB
 '''
 
 def find_rhyme(word, type_of_word=None):
-    possible_rhymes = ph.get_perfect_rhymes(word)
+    try:
+        possible_rhymes = ph.get_perfect_rhymes(word)
+    except KeyError:
+        print('----------- key error ----------')
+        return word
     rhyming_words_list = []
     for entry in possible_rhymes.values():
         rhyming_words_list += entry
@@ -206,6 +210,25 @@ if __name__ == "__main__":
 
     print('\n')
 
+    limerick_4 = Limerick(name)
+    generate_limerick(limerick_4, name, pronoun)
+    determine_fitness(limerick_4)
+
+    print('\n')
+
+    limerick_5 = Limerick(name)
+    generate_limerick(limerick_5, name, pronoun)
+    determine_fitness(limerick_5)
+
+    print('\n')
+
+    limerick_6 = Limerick(name)
+    generate_limerick(limerick_6, name, pronoun)
+    determine_fitness(limerick_6)
+
+    print('\n')
+
     
-    # print(' '.join(sample(words.words(), 1)))
-    # print(find_synonym('forbided'))
+    # word = ' '.join(sample(words.words(), 1))
+    # print(word)
+    # # print(find_synonym('forbided'))
