@@ -1,5 +1,7 @@
+# imports
 import random
 from limerick_class_file import syllable_fitness, rhyming_fitness
+
 
 '''
 This method returns the sum of all the ranks for a given population. It iterates through the size of the

@@ -2,7 +2,7 @@
 inspiration
 http://www.eecs.qmul.ac.uk/~mpurver/papers/mcgregor-et-al16ccnlg.pdf
 '''
-
+# imports
 import os
 import random
 from nltk.corpus import wordnet as wn
@@ -12,7 +12,11 @@ import pronouncing
 from Phyme import Phyme
 ph = Phyme()
 
-
+'''
+The limerick class is a roadmap for limerick objects that will each contain their 5 lines, and also different
+methods that will allow the printing and reading of the limericks. Also, getters and setters were created to
+allow the program to change lines of the limericks when required.
+'''
 class Limerick:
     line_1 = "empty"
     line_2 = "empty"
@@ -58,6 +62,17 @@ class Limerick:
         return self.line_5
 
 
+    '''
+    This method changes a singular word on a singular line of the limerick object this method
+    is called on.
+        Params:
+            @self {Limerick obj}: the limerick that is being altered
+            @line_num {int}: the line of the limerick that is being altered
+            @old_word {str}: the word that is being replaced from the limerick
+            @new_word {str}: the word that is being slot into the limerick for the old_word
+        Return:
+            None
+    '''
     def change_word(self, line_num, old_word, new_word):
 
         if line_num == 1:
@@ -83,22 +98,11 @@ class Limerick:
             self.set_line_4(new_line)
         if line_num == 5:
             self.set_line_5(new_line)
-        
-
-    # this method adds lines to limerick object
-    def add_line(self, line_num, line):
-        if line_num == 1:
-            self.line_1 = line
-        if line_num == 2:
-            self.line_2 = line
-        if line_num == 3:
-            self.line_3 = line
-        if line_num == 4:
-            self.line_4 = line
-        if line_num == 5:
-            self.line_5 = line
             
 
+    '''
+    This string funtion prints all 5 lines of the limerick object it is called on. 
+    '''
     def __str__(self):
         # allows you to use print(limerick)
         final_string = self.title + "\n"
@@ -110,6 +114,9 @@ class Limerick:
         return final_string    
 
     
+    '''
+    This method uses the OS to read alound the limerick that it was called by.
+    '''
     def read_limerick(self):
         os.system("say -v Alex " + self.get_line_1() )
         os.system("say -v Alex " + self.get_line_2() )
@@ -119,7 +126,18 @@ class Limerick:
 
 
 '''
-meter is very important in limericks for holding the limericks to a roughly designated pattern will help its readability
+This method calculates the syllable fitness of the limerick. The meter of a limerick is very important, as it
+is supposed to have an emphasis on traditional syllables in a word, which can only be possible if there is a
+specific amount of syllables in each line. This method checks the amount of syllables in each line against the 
+desired amount of syllables (there is an arr with these values in the method). There are some instances when the
+syllable counter doesn't know a word it encounters, so the method tries to find a synonyms for the unknown word
+to keep the meaning and still count the syllables. If that isn't possible then a random word is chosen. If a different 
+word has to be chosen then it is added into the limerick instead of the word that couldn't have its syllables determined.
+This score will end up being out of 100.
+    Params:
+        @self {Limerick obj}: the limerick that's fitness is being determined
+    Return:
+        @fitness {int}: the syllable fitness of the limerick that was calculated
 '''
 def syllable_fitness(limerick):
         fitness = 0
@@ -170,6 +188,15 @@ def syllable_fitness(limerick):
         return fitness
 
 
+'''
+This method calculates the rhyming fitness of the limerick. The rhyming scheme of a limerick is
+AABBA, so it checks all 4 relationships and subtracts points from a starting score of 50. Then this
+score is return after being multiplied by 2 so it is out of 100.
+    Params:
+        @self {Limerick obj}: the limerick that's fitness is being determined
+    Return:
+        @rhyming_fitness {int}: the rhyming fitness of the limerick that was calculated
+'''
 def rhyming_fitness(limerick):
     rhyming_fitness = 50
 
@@ -196,6 +223,13 @@ def rhyming_fitness(limerick):
     return 2 * rhyming_fitness
 
 
+'''
+This method finds a synonyms for the given word. If one can't be found then a random word is returned.
+    Params:
+        @word {str}: the word that the method is finding a synonyms for
+    Return:
+        string --> a string synonyms is returned, or if none were found then the parameter word is returned
+'''
 def find_synonym(word):
     synonyms = []
     for syn in wn.synsets(word):    
@@ -208,6 +242,14 @@ def find_synonym(word):
         return word
 
 
+'''
+This method checks if two words rhyme.
+    Params:
+        @word1 {str}: the first word being checkec
+        @word2 {str}: the second word being checked
+    Return:
+        boolean --> True if they rhyme, False if they don't
+'''
 def do_they_rhyme(word1, word2):
     possible_rhymes = pronouncing.rhymes(word1)
     if word2 in possible_rhymes:

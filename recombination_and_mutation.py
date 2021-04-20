@@ -1,7 +1,9 @@
+# imports
 from random import randint, sample
 from nltk.corpus import words
 import random
 import pronouncing
+
 
 '''
 This method will determine a line at random from the limerick, determine a random word on that line,

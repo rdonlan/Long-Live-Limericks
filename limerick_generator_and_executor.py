@@ -107,7 +107,7 @@ def original_generate_first_line(limerick_obj, name, pronoun):
         first_line = first_line + 'named ' + name
     elif pronoun == 'it':
         first_line = first_line + ", " + r.word(include_parts_of_speech=["adjectives"]) + ' ' + name
-    limerick_obj.add_line(1, first_line)
+    limerick_obj.set_line_1(first_line)
 
 
 '''
@@ -140,7 +140,7 @@ def original_generate_second_line(limerick_obj, name, pronoun):
         rhyming_words_list += entry
 
     second_line = second_line + random.choice(rhyming_words_list)
-    limerick_obj.add_line(2, second_line)
+    limerick_obj.set_line_2(second_line)
 
 
 '''
@@ -170,31 +170,31 @@ def original_generate_3rd_4th_lines(limerick_obj, pronoun):
 
     if line_type == 0:
         line_3 = random_determinant_1 + ' ' + random_noun[0] + ' ' + random_determinant_2 + ' ' + random_verb[0]
-        limerick_obj.add_line(3, line_3)
+        limerick_obj.set_line_3(line_3)
 
         rhymed_word = find_rhyme(random_verb[0])
 
         line_4 = random_determinant_3 + ' ' + random_noun[1] + ' ' + random_determinant_4 + ' ' + rhymed_word
-        limerick_obj.add_line(4, line_4)
+        limerick_obj.set_line_4(line_4)
 
 
     elif line_type == 1:
         line_3 = random_verb[0] + ' ' + random_adverb[0] + ' did ' + pronoun
-        limerick_obj.add_line(3, line_3)
+        limerick_obj.set_line_3(line_3)
 
         rhymed_word = find_rhyme(pronoun)
 
         line_4 = 'the ' + random_noun[0] + ' ' + random_verb[1] + ' ' + rhymed_word
-        limerick_obj.add_line(4, line_4)
+        limerick_obj.set_line_4(line_4)
 
     elif line_type == 2:
         line_3 = random_noun[0] + ' and ' + random_noun[1] + ' ' + random_auxilary_1 + ' be ' + random_verb[0]
-        limerick_obj.add_line(3, line_3)
+        limerick_obj.set_line_3(line_3)
 
         rhymed_word = find_rhyme(random_verb[0])
 
         line_4 = random_determinant_1 + ' ' + random_noun[2] + ' ' + random_verb[1] + ' ' + random_auxilary_2 + ' ' + rhymed_word
-        limerick_obj.add_line(4, line_4)
+        limerick_obj.set_line_4(line_4)
 
 
 '''
@@ -213,7 +213,7 @@ def original_generate_5th_line(limerick_obj, name, pronoun):
     # determinant, noun, auxillary
     line_5 = random.choice(DETERMINERS) + ' ' + r.word(include_parts_of_speech=["noun"]) + ' ' + pronoun \
     + ' ' + random.choice(AUXILARY) + ' ' + rhymed_word
-    limerick_obj.add_line(5, line_5)
+    limerick_obj.set_line_5(line_5)
 
     
 '''
