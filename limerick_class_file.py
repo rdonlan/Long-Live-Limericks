@@ -3,6 +3,7 @@ inspiration
 http://www.eecs.qmul.ac.uk/~mpurver/papers/mcgregor-et-al16ccnlg.pdf
 '''
 
+import os
 import random
 from nltk.corpus import wordnet as wn
 from nltk.corpus import words
@@ -107,6 +108,14 @@ class Limerick:
         final_string += self.line_4 + "\n"
         final_string += self.line_5
         return final_string    
+
+    
+    def read_limerick(self):
+        os.system("say -v Alex " + self.get_line_1() )
+        os.system("say -v Alex " + self.get_line_2() )
+        os.system("say -v Alex " + self.get_line_3() )
+        os.system("say -v Alex " + self.get_line_4() )
+        os.system("say -v Alex " + self.get_line_5() )
 
 
 '''
