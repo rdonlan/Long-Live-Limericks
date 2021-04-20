@@ -1,0 +1,340 @@
+----------------- Limerick 1 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: cow
+Pronoun: it
+Limerick_fitness: 186.66666666666669
+
+An old limerick about a cow #421:
+Once there was a foreclosure heavenly cow
+it continued some standing brow
+fledgling and sidewalk ought be last
+the bellows balance shouldn't passed
+another hardcover it cannot vow
+
+--------------------------------------------------
+----------------- Limerick 2 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: cow
+Pronoun: it
+Limerick_fitness: 173.33333333333331
+
+An old limerick about cow #302:
+Once there was a Gill absorbing cow
+it excavation this margined lao
+both shoe many forecast
+that vertigo such steadfast
+the rosemary it should mcdow
+
+--------------------------------------------------
+----------------- Limerick 3 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: Jack
+Pronoun: he
+Limerick_fitness: 173.33333333333334
+
+An old limerick about Jack #112:
+Once there was a curious lad named Jack
+he relaxed these encouraging shack
+all hence every open
+no bellows both koeppen
+any directive he shall schlack
+
+--------------------------------------------------
+----------------- Limerick 4 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: Jack
+Pronoun: he
+Limerick_fitness: 169.52380952380952
+
+An old limerick about Jack #567:
+Once there was an obsolete lad named Jack
+sparring tardiness rancorousness hamstring ack
+bare elderly did he
+the principal hurt musee
+either Arthur he shouldn't tac
+
+--------------------------------------------------
+----------------- Limerick 5 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: Jess
+Pronoun: her
+Limerick_fitness: 173.33333333333331
+
+Once there was a dapper lassie named Jess
+she ignored many aggressive kless
+wickedness suggestion breakup she
+the robot kneel attendee
+all keystone she ought nonetheless
+
+--------------------------------------------------
+----------------- Limerick 6 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.025
+Name/Object: Jess
+Pronoun: she
+Limerick_fitness: 129.52380952380952
+
+An old limerick about Jess #964:
+Once there was a aloe lassie named Jess
+she graduated no steep largesse
+that anything bougie shrug
+weakening irresponsible all always
+any goddess she shouldn't stress
+
+--------------------------------------------------
+----------------- Limerick 7 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.025
+Name/Object: cat
+Pronoun: it
+Limerick_fitness: 106.66666666666666
+
+An old limerick about a cat #177:
+Once there was a reproduce dramatic cat
+it assessed racy difficult at-bat
+Andria and evil wrath be praised
+those kale chew profligate amazed
+every cocoa gilbert may craftsmanship
+
+--------------------------------------------------
+----------------- Limerick 8 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.025
+Name/Object: cat
+Pronoun: it
+Limerick_fitness: 170.66666666666669
+
+An old limerick about a cat #241:
+Once there was a firth unable cat
+it forecasted each stupid brat
+interplanetary rank no altered
+no expect weighting unaltered
+elevated gauntness debutante ought flat
+
+--------------------------------------------------
+----------------- Limerick 9 ---------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.025
+Name/Object: Bob
+Pronoun: he
+Limerick_fitness: 142.22222222222223
+
+An old limerick about Bob #535:
+Once there was an unbiased lad named Bob
+he multiply no pinion slob
+angriness
+the patch destroy hardigree
+thoroughfare stumbling he casal job
+
+--------------------------------------------------
+----------------- Limerick 10 --------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.025
+Name/Object: Bob
+Pronoun: he
+Limerick_fitness: 184.0
+
+An old limerick about Bob #594:
+Once there was an aback lad named Bob
+he kneel that telling sob
+some hiring every appraise
+many energy such jays
+every newborn he cannot lob
+
+--------------------------------------------------
+----------------- Limerick 11 --------------------
+
+Generations: 25
+Population: 8
+Mutation_Rate: 0.025
+Name/Object: Sarah
+Pronoun: she
+Limerick_fitness: 115.55555555555556
+
+An old limerick about Sarah #733:
+Once there was a thirsty lassie named Sarah
+rigsby discoloration Sol organic darling
+mentor rely did she
+the eyeball improvise ferree
+combine silicon she cannot farah
+
+--------------------------------------------------
+----------------- Limerick 12 --------------------
+
+Generations: 25
+Population: 8
+Mutation_Rate: 0.025
+Name/Object: Sarah
+Pronoun: she
+Limerick_fitness: 173.33333333333334
+
+An old limerick about Sarah #958:
+Once there was a Early lassie named Sarah
+she marked another warm sara
+snakebite and shed must be execute
+the chrysalis mine need breadfruit
+the tuxedo she might frontera
+
+--------------------------------------------------
+----------------- Limerick 13 --------------------
+
+Generations: 25
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: table
+Pronoun: it
+Limerick_fitness: 173.33333333333334
+
+An old limerick about a table #540:
+Once there was a foam fertile table
+it feared these standing abell
+jam assembly did it
+the networking spin dewitt
+either balloonist it should raible
+
+--------------------------------------------------
+----------------- Limerick 14 --------------------
+
+Generations: 25
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: table
+Pronoun: it
+Limerick_fitness: 160.0
+
+An old limerick about a table #327:
+Once there was a snape dirty table
+it nested the educated sable
+ad and lord would be led
+these armament tabulate shall ed
+those gaffe it couldn't intercable
+
+--------------------------------------------------
+----------------- Limerick 15 --------------------
+
+Generations: 10
+Population: 32
+Mutation_Rate: 0.01
+Name/Object: boat
+Pronoun: it
+Limerick_fitness: 116.19047619047619
+
+An old limerick about a boat #955:
+Once there was a right tacky boat
+it feel some dispensable quote
+globe and unique cannot be wobble
+impressively
+both veterinarian it might grote
+
+--------------------------------------------------
+----------------- Limerick 16 --------------------
+
+Generations: 10
+Population: 32
+Mutation_Rate: 0.01
+Name/Object: boat
+Pronoun: it
+Limerick_fitness: 150.0
+
+An old limerick about a boat #435:
+Once there was a uppity chubby boat
+it mated any abhorrent oat
+enacted filly did it
+the proton tap telephony
+Clematis gambrel it shouldn't tote
+
+--------------------------------------------------
+----------------- Limerick 17 --------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: Ryan
+Pronoun: he
+Limerick_fitness: 146.66666666666669
+
+An old limerick about Ryan #783:
+Once there was a tart lad named Ryan
+he tabulated that damp rion
+thrill and trader might be prepare
+the dotter rid frumpy prayer
+both wandering he demerit Telugu
+
+--------------------------------------------------
+----------------- Limerick 18 --------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: Ryan
+Pronoun: he
+Limerick_fitness: 130.66666666666666
+
+An old limerick about Ryan #494:
+Once there was a clear lad named Ryan
+he introduced some tawdry guyon
+cabana and frigate could be know
+an Fur ski will branched
+many priesthood he ought ghanaian
+
+--------------------------------------------------
+----------------- Limerick 19 --------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: computer
+Pronoun: it
+Limerick_fitness: 130.66666666666666
+
+An old limerick about a computer #959:
+Once there was a top rural computer
+it annoyed no warlike lewter
+many measure the win
+every legume such vanryn
+all convective barrister need electrocute
+
+--------------------------------------------------
+----------------- Limerick 20 --------------------
+
+Generations: 20
+Population: 16
+Mutation_Rate: 0.01
+Name/Object: computer
+Pronoun: it
+Limerick_fitness: 133.33333333333334
+
+An old limerick about a computer #149:
+Once there was a hubbub youthful computer
+it lay an subsequent recruiter
+many season some tow
+any eleventh that jandreau
+many umbrella flytrap could boot her
+
+--------------------------------------------------
+

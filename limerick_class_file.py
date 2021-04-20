@@ -21,8 +21,11 @@ class Limerick:
     line_4 = "empty"
     line_5 = "empty"
 
-    def __init__(self, subject_name):
-        self.title = "An old limerick about " + subject_name + " #" + str(randint(0, 1000)) + ":"
+    def __init__(self, subject_name, pronoun):
+        if pronoun == 'it':
+            self.title = "An old limerick about a " + subject_name + " #" + str(randint(0, 1000)) + ":"
+        else:
+            self.title = "An old limerick about " + subject_name + " #" + str(randint(0, 1000)) + ":"
 
 
     def set_line_1(self, new_line):
@@ -39,6 +42,21 @@ class Limerick:
 
     def set_line_5(self, new_line):
         self.line_5 = new_line
+
+    def get_line_1(self):
+        return self.line_1
+
+    def get_line_2(self):
+        return self.line_2
+
+    def get_line_3(self):
+        return self.line_3
+
+    def get_line_4(self):
+        return self.line_4
+
+    def get_line_5(self):
+        return self.line_5
 
 
     def change_word(self, line_num, old_word, new_word):
@@ -82,7 +100,6 @@ class Limerick:
             self.line_5 = line
             
 
-
     def __str__(self):
         # allows you to use print(Recipe)
         final_string = self.title + "\n"
@@ -101,7 +118,7 @@ def syllable_fitness(limerick):
         fitness = 0
         # these values are not whole numbers so there is no divide by 0 error when calculating 
         # fitness at the end of the function
-        desired_line_syllables = [8.5, 8.5, 7.5, 7.5, 9.5]
+        desired_line_syllables = [9.5, 8.5, 7.5, 7.5, 9.5]
         lines = [limerick.line_1, limerick.line_2, limerick.line_3, limerick.line_4, limerick.line_5]
         # for every line in the limerick
         for i in range(5):
@@ -204,40 +221,7 @@ def do_they_rhyme(word1, word2):
         return False
 
 
-def mutate_limerick(limerick):
-    line_to_mutate = randint(1,5)
-    if line_to_mutate == 1:
-        line = limerick.line_1 
-    elif line_to_mutate == 2:
-        line = limerick.line_2
-    elif line_to_mutate == 3:
-        line = limerick.line_3
-    elif line_to_mutate == 4:
-        line = limerick.line_4
-    else:
-        line = limerick.line_5
-    
-    word_to_mutate = line[randint(1, len(line)) - 1]
 
-    new_word = sample(words.words(), 1)[0]
-    phones = pronouncing.phones_for_word(new_word)  
-
-    while(len(phones) < 1):
-        new_word = sample(words.words(), 1)[0]
-        phones = pronouncing.phones_for_word(new_word)
-
-    new_line = line.replace(word_to_mutate, new_word)
-
-    if line_to_mutate == 1:
-        limerick.set_line_1(new_line)
-    elif line_to_mutate == 2:
-        limerick.set_line_2(new_line)
-    elif line_to_mutate == 3:
-        limerick.set_line_3(new_line)
-    if line_to_mutate == 4:
-        limerick.set_line_4(new_line)
-    if line_to_mutate == 5:
-        limerick.set_line_5(new_line)
 
     
 
@@ -246,4 +230,6 @@ def mutate_limerick(limerick):
 
 
 if __name__ == "__main__":
-    print(do_they_rhyme('swank', 'mbank'))
+    a = [1,2,3,4,5,6]
+    random.shuffle(a)
+    print(a)
