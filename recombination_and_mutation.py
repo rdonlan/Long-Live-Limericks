@@ -3,7 +3,14 @@ from nltk.corpus import words
 import random
 import pronouncing
 
-
+'''
+This method will determine a line at random from the limerick, determine a random word on that line,
+and then replace that word with a newly, randomly generated word.
+    Params:
+        @limerick_obj {Limerick obj}: the limerick object that will be mutated
+    Return:
+        None
+'''
 def mutate_limerick(limerick):
     line_to_mutate = randint(1,5)
     if line_to_mutate == 1:
@@ -22,6 +29,7 @@ def mutate_limerick(limerick):
     new_word = sample(words.words(), 1)[0]
     phones = pronouncing.phones_for_word(new_word)  
 
+    # makes sure that the word has a definition
     while(len(phones) < 1):
         new_word = sample(words.words(), 1)[0]
         phones = pronouncing.phones_for_word(new_word)
@@ -34,9 +42,9 @@ def mutate_limerick(limerick):
         limerick.set_line_2(new_line)
     elif line_to_mutate == 3:
         limerick.set_line_3(new_line)
-    if line_to_mutate == 4:
+    elif line_to_mutate == 4:
         limerick.set_line_4(new_line)
-    if line_to_mutate == 5:
+    else:
         limerick.set_line_5(new_line)
 
 

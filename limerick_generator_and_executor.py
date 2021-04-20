@@ -219,7 +219,7 @@ def original_generate_5th_line(limerick_obj, name, pronoun):
 '''
 This method will generate call the methods to generate all 5 lines of the limerick.
     Params:
-        @limerick_obj {Limerick obj}: the limerick object that will recieve this newly generated line
+        @limerick_obj {Limerick obj}: the limerick object that will recieve these newly generated lines
         @name {str}: name of the person/object that the limerick is about, was given as input by the user
         @pronoun {str}: the pronoun of the person/object that the limerick is about, was given as input by user
     Return:
