@@ -1,7 +1,6 @@
 from random import randint, sample
-import random
 from nltk.corpus import words
-
+import random
 import pronouncing
 
 

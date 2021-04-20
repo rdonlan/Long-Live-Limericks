@@ -327,14 +327,13 @@ Population: 16
 Mutation_Rate: 0.01
 Name/Object: computer
 Pronoun: it
-Limerick_fitness: 133.33333333333334
+Limerick_fitness: 157.33333333333331
 
-An old limerick about a computer #149:
-Once there was a hubbub youthful computer
-it lay an subsequent recruiter
-many season some tow
-any eleventh that jandreau
-many umbrella flytrap could boot her
-
+An old limerick about a computer #558:
+Once there was a Gertrude frail computer
+it addressed many luscious rueter
+chili and construction should be number
+these unconvinced applied would lumber
+this institute it will souter
 --------------------------------------------------
 

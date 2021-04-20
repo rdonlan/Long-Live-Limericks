@@ -4,8 +4,6 @@ http://www.eecs.qmul.ac.uk/~mpurver/papers/mcgregor-et-al16ccnlg.pdf
 '''
 
 import random
-import nltk
-#nltk.download('cmudict')
 from nltk.corpus import wordnet as wn
 from nltk.corpus import words
 from random import randint, sample
@@ -101,7 +99,7 @@ class Limerick:
             
 
     def __str__(self):
-        # allows you to use print(Recipe)
+        # allows you to use print(limerick)
         final_string = self.title + "\n"
         final_string += self.line_1 + "\n"
         final_string += self.line_2 + "\n"
@@ -163,7 +161,6 @@ def syllable_fitness(limerick):
         return fitness
 
 
-
 def rhyming_fitness(limerick):
     rhyming_fitness = 50
 
@@ -188,48 +185,23 @@ def rhyming_fitness(limerick):
         rhyming_fitness -= 20
 
     return 2 * rhyming_fitness
-    
-
-
-
-
-def human_generated_fitness(limerick):
-    fitness = input('What grade out of 10 would you give this limerick: ')
-    return 10 * fitness
 
 
 def find_synonym(word):
     synonyms = []
-
     for syn in wn.synsets(word):    
         for l in syn.lemmas():
             if l.name() != word:
                 synonyms.append(l.name())
     if len(synonyms) > 0:
         return random.choice(synonyms)
-
     else:
         return word
 
 
 def do_they_rhyme(word1, word2):
-    # possible_rhymes = ph.get_perfect_rhymes(word1)
     possible_rhymes = pronouncing.rhymes(word1)
     if word2 in possible_rhymes:
         return True
     else:
         return False
-
-
-
-
-    
-
-
-
-
-
-if __name__ == "__main__":
-    a = [1,2,3,4,5,6]
-    random.shuffle(a)
-    print(a)

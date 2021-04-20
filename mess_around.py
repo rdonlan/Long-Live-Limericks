@@ -1,12 +1,8 @@
-from limerick_class_file import Limerick, syllable_fitness, find_synonym, rhyming_fitness
+from limerick_class_file import Limerick, syllable_fitness, rhyming_fitness
 from rank_select import rank_selection, rank_selection_cum_prob_list, sort_by_rank
-from recombination_and_mutation import make_next_gen, make_offspring
-# from nltk.corpus.reader import verbnet
-# from nltk.corpus.reader.wordlist import WordListCorpusReader
-import pronouncing
-# import nltk
+from recombination_and_mutation import make_next_gen
 from nltk.corpus import words
-# nltk.download('words')
+
 
 
 from Phyme import Phyme
@@ -30,8 +26,8 @@ DETERMINERS = ['all', 'an', 'another', 'any', 'both', 'each', 'either', 'every',
 AUXILARY = ["can", "cannot", "could", "couldn't", "dare", "may", "might", "must", "need", "ought", "shall", "should",
 "shouldn't", "will", "would",]
 MUTATION_RATE = 0.01
-TOTAL_GENERATIONS = 20
-POPULATION_SIZE = 16
+TOTAL_GENERATIONS = 2
+POPULATION_SIZE = 4
 
 
 '''
@@ -200,11 +196,10 @@ def generate_limerick(limerick_obj, name, pronoun):
 
 if __name__ == "__main__":
 
-    # name = input('Enter who/what will the limerick be about (proper or regular noun): ')
-    # pronoun = input('Is your object a: He | She | It : ').lower()
+    name = input('Enter who/what will the limerick be about (proper or regular noun): ')
+    pronoun = input('Is your object a: He | She | It : ').lower()
 
-    name = 'computer'
-    pronoun = 'it'
+    print('\n')
 
     population = []
 
