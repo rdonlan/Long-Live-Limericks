@@ -19,4 +19,14 @@ Working on this challenged me because I had to find a bunch of external librarie
 Also, the text file named best_limericks.txt contains the parameters used to run the program 20 different times, and the limericks that were spit out!
 
 Below are three academic papers that I got inspiration from when creating this program:
-http://www.eecs.qmul.ac.uk/~mpurver/papers/mcgregor-et-al16ccnlg.pdf
+
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0074986
+This paper explored what would responses from listeners would be if they were told a limerick that had some error, often changing the rhyming scheme and meter. They found that quite often there people had emotional responses in addition to their anomaly detection. This showed to me that these two things were very important for limericks and so I should calculate my fitness on them.
+
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.91.5363&rep=rep1&type=pdf#page=75
+This article was really the inspiration for me to write limericks. I was just randomly searching different types of poetry, and at the beginning of this article it has two limericks that it generated and they were quite good! So I wanted to try as well!
+
+https://www.hindawi.com/journals/mpe/2016/4076154/
+This article helped to inspire me to use a Genetic Algorithm to generate the best poetry. They used a genetric algorithm and it turned out to be a superior generator than the previous method they were using so I thought it would be a good method for me to use.
+
+
