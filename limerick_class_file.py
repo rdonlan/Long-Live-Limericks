@@ -1,7 +1,3 @@
-'''
-inspiration
-http://www.eecs.qmul.ac.uk/~mpurver/papers/mcgregor-et-al16ccnlg.pdf
-'''
 # imports
 import os
 import random
