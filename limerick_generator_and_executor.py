@@ -20,8 +20,8 @@ DETERMINERS = ['all', 'an', 'another', 'any', 'both', 'each', 'either', 'every',
 AUXILARY = ["can", "cannot", "could", "couldn't", "dare", "may", "might", "must", "need", "ought", "shall", "should",
 "shouldn't", "will", "would",]
 MUTATION_RATE = 0.01
-TOTAL_GENERATIONS = 2
-POPULATION_SIZE = 4
+TOTAL_GENERATIONS = 20
+POPULATION_SIZE = 16
 READ_POEM = True
 
 
